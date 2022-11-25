@@ -8,28 +8,35 @@
         {
           position: absolute;
           margin: auto;
-          top: 0;
           right: 0;
           bottom: 0;
           left: 0;
-          width: 350px;
-          height: 350px;
+          width: 450px;
+          height:460px;
           background-color: lightblue;
           border-radius: 3px;
           padding: 10px;
-          font-size: 1em;
+          font-size: 1.2em;
+        }
+        container2 #text {
+            position: absolute;
+            bottom: 0;
+        }
+        #container #text {
+          top: 0;
+          left: 0;
         }
 </style>
 </head>
 <body>
-
 <div class="" id="container">
-<h2>Sizes:</h2>
-<p id="screen"></p>
-<p id="window"></p>
-<p id="page"></p>
-<p id="orientation"></p>
+ <h2>Sizes:</h2>
+ <p id="screen"></p>
+ <p id="window"></p>
+ <p id="page"></p>
+ <p id="orientation"></p>
 </div>
+
 <div class="center" id="container2"></div>
 <script>
 
@@ -77,6 +84,7 @@ var windowHeight = window.innerHeight;
 // Get the size of the entire webpage
 const pageWidth  = document.documentElement.scrollWidth;
 const pageHeight = document.documentElement.scrollHeight;
+
 
 // Showing the sizes on the webpage
 x.innerHTML = "Device Screen: width: " + screenWidth + ", height: " + screenHeight + ".";
