@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+        html{ height:100%; }
+        body { height:100%; background-color: #fcfcfc;  }
+        .center
+        {
+          position: absolute;
+          margin: auto;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          width: 350px;
+          height: 350px;
+          background-color: lightblue;
+          border-radius: 3px;
+          padding: 10px;
+          font-size: 1em;
+        }
+</style>
+</head>
+<body>
+
+<div class="" id="container">
+<h2>Sizes:</h2>
+<p id="screen"></p>
+<p id="window"></p>
+<p id="page"></p>
+<p id="orientation"></p>
+</div>
+<div class="center" id="container2"></div>
+<script>
+
+
+function getOrientation(){
+   var orientation = window.innerWidth > window.innerHeight ? "Landscape" : "Portrait";
+   //return orientation;
+   var windowWidth=  document.documentElement.clientWidth;
+   var windowHeight= document.documentElement.clientHeight;
+   //pageWidth=    Math.min(document.body.scrollWidth, contentWidth),
+   //pageHeight=   document.body.scrollHeight,
+   var screenWidth =  window.screen.width;
+   var screenHeight = window.screen.height;
+   var pageX =        document.body.getBoundingClientRect().x;
+   var pageY =        document.body.getBoundingClientRect().y;
+   var screenX =     -window.screenX;
+   var screenY =     -window.screenY - (window.outerHeight-window.innerHeight);
+   var orientation = window.screen.orientation.type
+
+   x.innerHTML = "Device Screen: width: " + screenWidth + ", height: " + screenHeight + ".";
+   y.innerHTML = "Browser Window: width: " + windowWidth + ", height: " + windowHeight + ".";
+   z.innerHTML = "scrollx/y: " + document.body.scrollWidth + " " + document.body.scrollHeight;
+   a.innerHTML = "orientation: " + orientation;
+   container2.innerHTML = container.innerHTML
+}
+
+window.onresize = function(){ getOrientation(); }
+
+var x = document.getElementById("screen");
+var y = document.getElementById("window");
+var z = document.getElementById("page");
+var a = document.getElementById("orientation");
+var container = document.getElementById("container");
+var container2 = document.getElementById("container2");
+
+
+// one way to Get the size of the device screen
+var screenWidth = screen.width;
+var screenHeight = screen.height;
+
+// Get the browser window size
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
+
+// Get the size of the entire webpage
+const pageWidth  = document.documentElement.scrollWidth;
+const pageHeight = document.documentElement.scrollHeight;
+
+// Showing the sizes on the webpage
+x.innerHTML = "Device Screen: width: " + screenWidth + ", height: " + screenHeight + ".";
+y.innerHTML = "Browser Window: width: " + windowWidth + ", height: " + windowHeight + ".";
+z.innerHTML = "Webpage: width:" + pageWidth + ", height: " + pageHeight + ".";
+a.innerHTML = "orientation: " + orientation;
+
+</script>
+
+</body>
+</html>
